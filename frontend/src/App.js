@@ -1,6 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
-import React, {useEffect, useState, userEffect } from 'react'
+import React, {useEffect, useState} from 'react'
+import { AuthDisplay } from './components/AuthDisplay';
+import { FirebaseContextProvider } from './contexts/FirebaseContext';
 
 
 function App() {
@@ -15,10 +16,13 @@ function App() {
   },[]);
 
   return (
-    <div className="App">
-      <h1 className=' underline text-lg'>Hello</h1>
-      <h1>{ data.message }</h1>
-    </div>
+    <FirebaseContextProvider>
+      <div className="App">
+        <h1 className=' underline text-lg'>Hello</h1>
+        <h1>{ data.message }</h1>
+        <AuthDisplay />
+      </div>
+    </FirebaseContextProvider>
   );
 }
 
