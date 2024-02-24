@@ -2,12 +2,16 @@ import { useFirebaseContext } from "../contexts/FirebaseContext";
 
 export function AuthDisplay() {
   const {firebaseState, signIn} = useFirebaseContext();
+  console.log(firebaseState.user);
 
   return (
     <>
       {firebaseState.user !== null
         ? (
-          <h1>Signed In.</h1>
+          <div class="flex flex-row items-center gap-4">
+            <img src={firebaseState.user.photoURL} alt="Profile." />
+            <h3>{firebaseState.user.displayName}</h3>
+          </div>
         ) 
         : (
           <div>
