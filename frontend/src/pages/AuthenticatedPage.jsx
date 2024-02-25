@@ -26,7 +26,7 @@ function AuthenticatedPageChild({children}) {
     } else {
       getAllAccountInfo(userUID, userToken);
     }
-  });
+  }, []);
 
   return <>{children}</>;
 }

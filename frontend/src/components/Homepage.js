@@ -2,14 +2,16 @@ import Navbar from "./Navbar";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import { HiOutlineClipboardList } from "react-icons/hi";
 import { AuthDisplay } from "./AuthDisplay";
+import { useFirebaseContext } from "../contexts/FirebaseContext";
 
 function Homepage() {
+  const {firebaseState} = useFirebaseContext();
   return (
     <>
       <div className="bg-[rgb(255,245,231)] h-screen">
         <div className=" flex justify-around pt-12 items-center">
           <h1 className="text-left text-6xl font-bold leading-[80px]">
-            Hi Name <br /> What do want to do today?
+            Hi {firebaseState.user.displayName}, <br /> What do want to do today?
           </h1>
           <AuthDisplay />
         </div>
