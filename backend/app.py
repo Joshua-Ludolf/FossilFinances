@@ -26,7 +26,7 @@ def get_data():
 
 
 # POST ROUTE OF ACCOUNT INFO
-@app.route('/certain_info/')
+@app.route('/account-info', methods=['GET'])
 @cross_origin()
 def get_certain_info():
     return fb.get_certain_account_info(request.args.get('user_id'))
