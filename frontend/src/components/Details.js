@@ -19,15 +19,15 @@ const Details = ({ open, onClose }) => {
           </button>
         </div>
         <div className="flex-col">
-          <p className="">Apple Pay</p>
+          <p className="text-center">Apple Pay</p>
           <h1 className="Balance mt-2 font-bold text-6xl text-center text-red-500">
             -$50
           </h1>
-          <p className="p-3 mt-3">Accoount name</p>
-          <p className="p-3"> Remaining Balance: $</p>
-          <p className="p-3">01/01/2024</p>
-          <p className="p-3">Location</p>
-          <p className="p-3">Transaction Type</p>
+          <p className="text-center p-3 mt-3">Accoount name</p>
+          <p className="text-center p-3"> Remaining Balance: $</p>
+          <p className="text-center p-3">01/01/2024</p>
+          <p className="text-center p-3">Location</p>
+          <p className="text-center p-3">Transaction Type</p>
         </div>
       </div>
     </>

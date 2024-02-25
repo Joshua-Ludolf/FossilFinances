@@ -145,12 +145,12 @@ function KnowledgeBase() {
             </a>
           </div>
 
-          <h1 className="mt-12 text-6xl font-bold leading-tight">
+          <h1 className=" text-center mt-12 text-6xl font-bold leading-tight">
             {" "}
             <span className="text-[#624E41]">your employer </span> + Retirement
             Benefits
           </h1>
-          <p className=" m-4 text-2xl font-medium leading-tight">
+          <p className="text-center m-4 text-2xl font-medium leading-tight">
             Check to see if your employer offers any retirement benefits
           </p>
 
