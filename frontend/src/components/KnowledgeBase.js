@@ -1,9 +1,8 @@
 import React, { useState } from "react";
+import { AuthDisplay } from "./AuthDisplay";
 import Navbar from "./Navbar";
 
 function KnowledgeBase() {
-  const [openProfile, setOpenProfile] = useState(false);
-
   return (
     <>
       <>
@@ -16,20 +15,7 @@ function KnowledgeBase() {
                 information secure
               </span>
             </h1>
-            <span
-              onClick={() => setOpenProfile((prev) => !prev)}
-              className="relative authdisplay inline-block rounded-[50%] w-[124px] h-[124px] bg-black hover:scale-105 transition-all"
-            >
-              {openProfile && (
-                <div className="absolute flex flex-col gap-4 text-center top-[115%] bg-white rounded-xl p-2 w-[124px] text-lg font-medium shadow-lg">
-                  <p className="">Name</p>
-                  <p className=" rounded-md hover:bg-[#f0f0f0]">Settings</p>
-                  <p className=" rounded-md hover:bg-[#f0f0f0] font-bold">
-                    Sign Out
-                  </p>
-                </div>
-              )}
-            </span>
+            <AuthDisplay />
           </div>
           <div className=" mt-10 px-10 flex justify-around">
             <a

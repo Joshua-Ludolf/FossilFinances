@@ -47,8 +47,12 @@ export const FirebaseContextProvider = ({children}) => {
     });
   };
 
+  const signOutUser = () => {
+    signOut(firebaseState.auth);
+  };
+
   return (
-    <FirebaseContext.Provider value={{firebaseState, setUser, signIn, signOut}}>
+    <FirebaseContext.Provider value={{firebaseState, setUser, signIn, signOut: signOutUser}}>
       {children}
     </FirebaseContext.Provider>
   );
