@@ -22,7 +22,7 @@ export const UserFinancialsContextProvider = ({children}) => {
   };
 
   const getAllAccountInfo = async (accountId, token) => {
-    const info = await (await fetch('localhost:5000/account_info',
+    const info = await (await fetch('http://127.0.0.1:5000/account_info.json',
       {
         method: 'post',
         body: JSON.stringify({ accountId, token }),
