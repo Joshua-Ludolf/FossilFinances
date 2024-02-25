@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
-import { HiOutlineCurrencyDollar } from "react-icons/hi";
+import { HiOutlineVolumeUp } from "react-icons/hi";
 import { HiOutlineClipboardList } from "react-icons/hi";
 import { AuthDisplay } from "./AuthDisplay";
 import Details from "./Details";
 
 function Transactions() {
   const [openModal, setOpenModal] = useState(false);
+
+  function textToSpeech() {
+    let utterance = new SpeechSynthesisUtterance("Date, charge amount, location, remainaing balance");
+    speechSynthesis.speak(utterance);
+  }
+
 
   return (
     <>
@@ -39,12 +45,22 @@ function Transactions() {
           </div>
           <div
             onClick={() => setOpenModal(true)}
-            className="Button1 shadow-md rounded-3xl h-[148px] w-[25%] bg-white flex flex-col justify-center items-center text-center text-2xl font-bold"
+            className="Button1 shadow-md rounded-3xl h-[148px] w-[15%] bg-white flex flex-col justify-center items-center text-center text-2xl font-bold hover:scale-105 transition-all"
           >
             <div className="icon">
               <HiOutlineClipboardList size={80} />
             </div>
             <div className="text">Details</div>
+          </div>
+
+          <div
+            onClick={textToSpeech}
+            className="Button1 shadow-md rounded-3xl h-[148px] w-[15%] bg-white flex flex-col justify-center items-center text-center text-2xl font-bold hover:scale-105 transition-all"
+          >
+            <div className="icon">
+              <HiOutlineVolumeUp size={80} />
+            </div>
+            <div className="text">Speech</div>
           </div>
         </div>
 
