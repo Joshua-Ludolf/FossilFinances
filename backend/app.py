@@ -1,11 +1,13 @@
 from flask import Flask, jsonify, request, abort
 from flask_cors import CORS
 
+import fb
+
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 
-@app.route('/message', methods = ['POST'])
+@app.route('/message', methods=['POST'])
 def get_data():
     # get the number and message from the query parameters
     number = request.form.get('number')
@@ -20,6 +22,11 @@ def get_data():
         return jsonify({'success': 'Message sent'})
     except Exception as e:
         abort(500, str(e))
+
+
+@app.route('/account_info', methods=['GET'])
+def get_account_info():
+    return fb.get_info('YC37Tj0R4AbgOJdduyi4iSUbGPH2')
 
 
 @app.route('/')
