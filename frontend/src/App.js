@@ -4,6 +4,7 @@ import Homepage from "./components/Homepage";
 // import React, {useEffect, useState} from 'react'
 import { FirebaseContextProvider } from "./contexts/FirebaseContext";
 import KnowledgeBase from "./components/KnowledgeBase";
+import Transactions from "./components/Transactions";
 
 function App() {
   // const [data, setData ] = useState({})

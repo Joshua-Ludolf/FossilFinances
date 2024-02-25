@@ -26,7 +26,7 @@ function KnowledgeBase() {
   return (
     <>
       <>
-        <div className="bg-[#FFF5E7]  h-[3000px]">
+        <div className="bg-[#FFF5E7]  h-[1700px]">
           <div className=" flex justify-around pt-12 items-center">
             <h1 className="text-left text-6xl font-bold leading-tight">
               Welcome to the Knowledge Base <br />{" "}
