@@ -21,13 +21,16 @@ export const UserFinancialsContextProvider = ({children}) => {
     setUserFinancials(fincs);
   };
 
-  const getAllAccountInfo = async (accountId, token) => {
-    const info = await (await fetch('http://127.0.0.1:5000/account_info.json',
-      {
-        method: 'post',
-        body: JSON.stringify({ accountId, token }),
-        headers: { 'Content-Type': 'application/json' },
-      }
+  const getAllAccountInfo = async (accountId, _) => {
+    //const info = await (await fetch('http://127.0.0.1:5000/account_info.json',
+    //  {
+    //    method: 'post',
+    //    body: JSON.stringify({ accountId, token }),
+    //    headers: { 'Content-Type': 'application/json' },
+    //  }
+    //)).json();
+    const info = await (await fetch(
+      `http://127.0.0.1:5000/account-info?user_id=${accountId}`
     )).json();
     console.log(info);
     setUserFinancials(info);

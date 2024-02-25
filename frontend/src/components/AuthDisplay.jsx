@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFirebaseContext } from "../contexts/FirebaseContext";
 import { AuthenticatedPage } from "../pages/AuthenticatedPage";
 
 export function AuthDisplay() {
   const {firebaseState} = useFirebaseContext();
+  const [signedIn, setSignedIn] = useState(firebaseState.user !== null);
+
+  useEffect(() => {
+    setSignedIn(firebaseState.user !== null);
+  }, [firebaseState]);
 
   return (
     <>
-      {firebaseState.user !== null
+      {signedIn
         ? (
           <AuthenticatedButton />
         ) 
