@@ -1,10 +1,9 @@
-import './App.css';
-import React, {useEffect, useState, userEffect } from 'react'
-import Homepage from './components/Homepage';
-import React, {useEffect, useState} from 'react'
-import { AuthDisplay } from './components/AuthDisplay';
-import { FirebaseContextProvider } from './contexts/FirebaseContext';
-
+import "./App.css";
+import React, { useEffect, useState, userEffect } from "react";
+import Homepage from "./components/Homepage";
+// import React, {useEffect, useState} from 'react'
+import { FirebaseContextProvider } from "./contexts/FirebaseContext";
+import KnowledgeBase from "./components/KnowledgeBase";
 
 function App() {
   // const [data, setData ] = useState({})
@@ -19,13 +18,13 @@ function App() {
 
   return (
     <FirebaseContextProvider>
-    <div className="App">
-      <Homepage />
-      {/* <h1 className=' underline text-lg'>Hello</h1>
+      <div className="App">
+        {/* <Homepage /> */}
+        <KnowledgeBase />
+        {/* <h1 className=' underline text-lg'>Hello</h1>
       <h1>{ data.message }</h1> */}
-    </div>
+      </div>
     </FirebaseContextProvider>
-
   );
 }
 
