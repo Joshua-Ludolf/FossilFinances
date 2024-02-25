@@ -21,9 +21,8 @@ export function AuthDisplay() {
 function AuthenticatedButton() {
   const [openProfile, setOpenProfile] = useState(false);
   const {firebaseState, signOut} = useFirebaseContext();
-  console.log(firebaseState);
   const {user} = firebaseState;
-  console.log(user);
+
   return (
     <>
       {user === undefined
