@@ -12,7 +12,7 @@ function Navbar() {
           <HiOutlineMenuAlt2 size={60} className="h-15 w-[100%]" />
           <h1>Transactions</h1>
         </Link>
-        <Link to="/dashboard" className="flex-col px-8 py-2 rounded-xl align-middle hover:bg-[#75665d] transition-all">
+        <Link to="/dashboard" className="flex-col px-8 py-2 rounded-xl text-center align-middle hover:bg-[#75665d] transition-all">
           <HiHome size={60} className="h-15 w-[100%]" />
           <h1>Home</h1>
         </Link>
