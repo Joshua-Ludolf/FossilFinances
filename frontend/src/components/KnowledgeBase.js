@@ -4,6 +4,24 @@ import Navbar from "./Navbar";
 function KnowledgeBase() {
   const [openProfile, setOpenProfile] = useState(false);
 
+  const [val, setVal] = useState("");
+
+  const click = (event) => {
+    if (event.key === "Enter") {
+      window.open(hrefString, "_blank");
+    }
+  };
+
+  const change = (event) => {
+    const newVal = val.split(" ").join("+");
+    setVal(event.target.value);
+    // alert(val.split(' ').join('+'));
+  };
+
+  const hrefString = `https://www.google.com/search?q=${val
+    .split(" ")
+    .join("+")}+retirement+benefits`;
+
   return (
     <>
       <>
@@ -142,22 +160,31 @@ function KnowledgeBase() {
           <h1 className="mt-12 text-6xl font-bold leading-tight">
             {" "}
             <span className="text-[#624E41]">your employer </span> + Retirement
-            Benifits
+            Benefits
           </h1>
           <p className=" m-4 text-2xl font-medium leading-tight">
             Check to see if your employer offers any retirement benefits
           </p>
 
-          <div className=" mt-10 px-10 flex justify-around">
-            
+          <div className="flex"></div>
+          <div className=" mt-10 px-10 flex gap-4 justify-center">
             <input
+              onKeyDown={click}
+              onChange={change}
+              value={val}
               href="https://crr.bc.edu/single-retirees-of-color-face-greatest-financial-hardship/"
               target="_blank"
-              className="shadow-md   rounded-3xl h-auto w-[55%] bg-white text-left flex-col align-middle hover:scale-105 transition-all"
+              className="shadow-md py-4 rounded-xl h-auto w-[55%] bg-white text-left flex-col align-middle transition-all pl-8"
+              placeholder="Enter the name of your employer"
+            ></input>
+
+            <a
+              href={hrefString}
+              target="_blank"
+              className=" shadow-md rounded-xl h-auto w-[15%] bg-[#624E41] text-center font-bold align-middle hover:scale-105 transition-all text-[#FFF5E7] justify-center  items-center flex text-2xl "
             >
-
-
-            </input>
+              <button>Search</button>
+            </a>
           </div>
 
           <div className="relative">
