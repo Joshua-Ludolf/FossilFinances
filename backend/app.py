@@ -6,25 +6,6 @@ import fb
 app = Flask(__name__)
 cors = CORS(app, resources={r"*": {"origins": "*"}})
 
-
-@app.route('/message', methods=['GET'])
-@cross_origin()
-def get_data():
-    # get the number and message from the query parameters
-    number = request.form.get('number')
-    message = request.form.get('message')
-    # validate the inputs
-    if not number or not message:
-        abort(400, 'Invalid inputs')
-    # send the message using pywhatkit
-    try:
-        import pywhatkit
-        pywhatkit.sendwhatmsg_instantly('+1' + number.rstrip('-'), message, 10)
-        return jsonify({'success': 'Message sent'})
-    except Exception as e:
-        abort(500, str(e))
-
-
 # POST ROUTE OF ACCOUNT INFO
 @app.route('/account-info', methods=['GET'])
 @cross_origin()
@@ -39,10 +20,16 @@ def get_account_info():
     return fb.get_info('YC37Tj0R4AbgOJdduyi4iSUbGPH2')
 
 
+@app.route('/account_transaction/')
+@cross_origin()
+def transaction_update():
+    return fb.account_update(request.args.get('user_id'), request.args.get('account'))
+
+
 @app.route('/')
 @cross_origin()
 def welcome():
-    data = {'message': 'Hello from Flask'}
+    data = {'message': 'Hello from FossilFinances'}
     return jsonify(data)
 
 
