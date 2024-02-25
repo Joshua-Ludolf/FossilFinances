@@ -48,7 +48,7 @@ def get_certain_account_info(user_id):
             else:
                 # Return an error message if the document does not exist
                 return 'No such document!'
-        user['accounts'] = account_infos
+        user['fin_accounts'] = account_infos
         return jsonify(user)
     else:
         # Return an error message if user_id is missing or invalid
