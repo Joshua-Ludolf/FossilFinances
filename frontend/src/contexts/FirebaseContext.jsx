@@ -2,6 +2,7 @@ import {createContext, useContext, useEffect, useState} from 'react';
 import {initializeApp} from 'firebase/app';
 import {getAuth, GoogleAuthProvider, signInWithPopup, signOut, setPersistence, browserSessionPersistence} from 'firebase/auth';
 
+// Configuration for connecting to and using Firebase.
 const firebaseConfig = {
   apiKey: "AIzaSyDFiW_vY9KC_Vr5mbDsoIvGYN-Gdsum8C0",
   authDomain: "fossilfinances.firebaseapp.com",
@@ -12,6 +13,8 @@ const firebaseConfig = {
   measurementId: "G-Z413BT8NM7"
 };
 
+/// Stores the current state of the Firebase and user auth, as well as provdes
+/// useful functions for the easier handliing of authentication state / flows.
 export const FirebaseContext = createContext({
   firebaseState: {
     app: null,
@@ -23,8 +26,11 @@ export const FirebaseContext = createContext({
   signOut: () => {},
 });
 
+/// Wrapper for `useContext` on the `FirebaseContext`.
 export const useFirebaseContext = () => useContext(FirebaseContext);
 
+/// Provides the `FirebaseContext`. Is used to track the user's current auth
+/// state and the state of the Firebase application connection as a whole.
 export const FirebaseContextProvider = ({children}) => {
   const [firebaseState, setFirebaseState] = useState({
     app: null,
@@ -32,6 +38,7 @@ export const FirebaseContextProvider = ({children}) => {
     user: null,
   });
 
+  // Setup Firebase application connection on first page load.
   useEffect(() => {
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);

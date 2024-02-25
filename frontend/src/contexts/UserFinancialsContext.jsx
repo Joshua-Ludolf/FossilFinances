@@ -1,5 +1,6 @@
 import {createContext, useContext, useState} from 'react';
 
+/// Allows for storing the user's current financial transactions in memory.
 export const UserFinancialsContext = createContext({
   userFinancials: {
     accounts: [],
@@ -9,8 +10,10 @@ export const UserFinancialsContext = createContext({
   getAllAccountInfo: (_accountId, _token) => {},
 });
 
+/// Wrapper for `useContext` on `UserFinancialsContext`.
 export const useUserFinancials = () => useContext(UserFinancialsContext);
 
+/// Provides the context for `UserFinancialsContext`.
 export const UserFinancialsContextProvider = ({children}) => {
   const [userFinancials, setUserFinancials] = useState({
     accounts: [],
@@ -22,13 +25,6 @@ export const UserFinancialsContextProvider = ({children}) => {
   };
 
   const getAllAccountInfo = async (accountId, _) => {
-    //const info = await (await fetch('http://127.0.0.1:5000/account_info.json',
-    //  {
-    //    method: 'post',
-    //    body: JSON.stringify({ accountId, token }),
-    //    headers: { 'Content-Type': 'application/json' },
-    //  }
-    //)).json();
     const info = await (await fetch(
       `http://127.0.0.1:5000/account-info?user_id=${accountId}`
     )).json();
