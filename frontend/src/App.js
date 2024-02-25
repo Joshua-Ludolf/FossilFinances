@@ -20,8 +20,7 @@ function App() {
   return (
     <FirebaseContextProvider>
       <div className="App">
-        {/* <Homepage /> */}
-        <KnowledgeBase />
+        <Homepage />
         {/* <h1 className=' underline text-lg'>Hello</h1>
       <h1>{ data.message }</h1> */}
       </div>
