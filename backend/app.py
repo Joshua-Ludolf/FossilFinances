@@ -4,7 +4,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-'''
+
 @app.route('/message', methods = ['POST'])
 def get_data():
     # get the number and message from the query parameters
@@ -20,7 +20,7 @@ def get_data():
         return jsonify({'success': 'Message sent'})
     except Exception as e:
         abort(500, str(e))
-'''
+
 
 @app.route('/')
 def welcome():
