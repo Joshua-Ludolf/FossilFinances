@@ -3,7 +3,6 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 from flask import jsonify
 
-import json
 
 # Use a service account.
 cred = credentials.Certificate('service_account.json')
