@@ -6,6 +6,7 @@ import fb
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
+
 # POST ROUTE OF ACCOUNT INFO
 @app.route('/certain_info/')
 @cross_origin()
