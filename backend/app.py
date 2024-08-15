@@ -4,11 +4,11 @@ from flask_cors import CORS, cross_origin
 import fb
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+cors = CORS(app, resources={r"*": {"origins": "*"}})
 
 
 # POST ROUTE OF ACCOUNT INFO
-@app.route('/certain_info/')
+@app.route('/account-info', methods=['GET'])
 @cross_origin()
 def get_certain_info():
     return fb.get_certain_account_info(request.args.get('user_id'))
