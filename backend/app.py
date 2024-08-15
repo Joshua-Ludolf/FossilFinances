@@ -18,7 +18,7 @@ def get_certain_info():
 @app.route('/account_info/')
 @cross_origin()
 def get_account_info():
-    return fb.get_info('YC37Tj0R4AbgOJdduyi4iSUbGPH2')
+    return fb.get_info(request.args.get('user_id'))
 
 
 @app.route('/account_transaction/')
