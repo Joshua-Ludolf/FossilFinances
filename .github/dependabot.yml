@@ -5,7 +5,11 @@
 
 version: 2
 updates:
-  - package-ecosystem: "django" # See documentation for possible values
+  - package-ecosystem: "flask" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
-      interval: "weekly"
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "daily"
