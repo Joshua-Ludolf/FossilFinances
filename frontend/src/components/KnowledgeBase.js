@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DOMPurify from 'dompurify';
 import { AuthDisplay } from "./AuthDisplay";
 import Navbar from "./Navbar";
 
@@ -15,7 +16,7 @@ function KnowledgeBase() {
 
   const change = (event) => {
     const newVal = val.split(" ").join("+");
-    setVal(event.target.value);
+    setVal(DOMPurify.sanitize(event.target.value));
     // alert(val.split(' ').join('+'));
   };
 
