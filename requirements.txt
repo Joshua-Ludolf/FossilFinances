@@ -46,7 +46,7 @@ PyRect==0.2.0
 PyScreeze==0.1.30
 pytweening==1.2.0
 pywhatkit==5.4
-requests==2.32.2
+requests==2.32.4
 rsa==4.9
 soupsieve==2.5
 uritemplate==4.1.1
